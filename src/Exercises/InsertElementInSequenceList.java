@@ -59,9 +59,18 @@ public class InsertElementInSequenceList {
         return result;
     }
 
+    /**
+     * 将原始数组转换成 ArrayList, 用 ArrayList.add(index, element) 来添加元素
+     * @param arr 初始数组
+     * @param index 插入元素位置下标
+     * @param x 插入元素值
+     * @return
+     */
     public static int[] insertElem2(int[] arr, int index, int x) {
+        // 利用 Arrays 类的 stream 方法将 int[] 数组转为 List<Integer>
         List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
         list.add(index, x);
+        // 将 List<Integer> 转回 int[]
         int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
             result[i] = list.get(i);
